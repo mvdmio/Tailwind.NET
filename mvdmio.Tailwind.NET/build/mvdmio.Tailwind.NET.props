@@ -1,0 +1,22 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<!-- Set the OS portion of the binary file name -->
+		<TailwindBinaryOS Condition="'$(OS)' == 'Windows_NT'">windows</TailwindBinaryOS>
+		<TailwindBinaryOS Condition="'$(OS)' != 'Windows_NT' and $([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::OSX)))">macos</TailwindBinaryOS>
+		<TailwindBinaryOS Condition="'$(OS)' != 'Windows_NT' and !$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::OSX)))">linux</TailwindBinaryOS>
+
+		<!-- Set the architecture portion of the binary file name -->
+		<TailwindBinaryArch Condition="'$(Platform)' == 'ARM64'">arm64</TailwindBinaryArch>
+		<TailwindBinaryArch Condition="'$(Platform)' == 'ARM'">armv7</TailwindBinaryArch>
+		<TailwindBinaryArch Condition="'$(Platform)' == 'x64'">x64</TailwindBinaryArch>
+
+		<!-- Set the executable extension for the binary -->
+		<TailwindBinaryExt Condition="'$(OS)' == 'Windows_NT'">.exe</TailwindBinaryExt>
+		<TailwindBinaryExt Condition="'$(OS)' != 'Windows_NT'"></TailwindBinaryExt>
+
+		<!-- Construct the final binary file path -->
+		<TailwindBinaryPath>tools\tailwindcli\v3.2.7\$(TailwindBinaryOS)-$(TailwindBinaryArch)$(TailwindBinaryExt)</TailwindBinaryPath>
+		<TailwindInputFile>./tailwind/tailwind.input.css</TailwindInputFile>
+		<TailwindOutputFile>./tailwind/tailwind.output.css</TailwindOutputFile>
+	</PropertyGroup>
+</Project>

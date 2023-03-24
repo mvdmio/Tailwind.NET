@@ -8,14 +8,14 @@
 		<!-- Set the architecture portion of the binary file name -->
 		<TailwindBinaryArch Condition="'$(Platform)' == 'ARM64'">arm64</TailwindBinaryArch>
 		<TailwindBinaryArch Condition="'$(Platform)' == 'ARM'">armv7</TailwindBinaryArch>
-		<TailwindBinaryArch Condition="'$(Platform)' == 'x64'">x64</TailwindBinaryArch>
+		<TailwindBinaryArch Condition="'$(Platform)' != 'ARM64' and '$(Platform)' != 'ARM'">x64</TailwindBinaryArch>
 
 		<!-- Set the executable extension for the binary -->
 		<TailwindBinaryExt Condition="'$(OS)' == 'Windows_NT'">.exe</TailwindBinaryExt>
 		<TailwindBinaryExt Condition="'$(OS)' != 'Windows_NT'"></TailwindBinaryExt>
 
 		<!-- Construct the final binary file path -->
-		<TailwindBinaryPath>tools\tailwindcli\v3.2.7\$(TailwindBinaryOS)-$(TailwindBinaryArch)$(TailwindBinaryExt)</TailwindBinaryPath>
+		<TailwindBinaryPath>tools\$(TailwindBinaryOS)-$(TailwindBinaryArch)$(TailwindBinaryExt)</TailwindBinaryPath>
 		<TailwindInputFile>./tailwind/tailwind.input.css</TailwindInputFile>
 		<TailwindOutputFile>./tailwind/tailwind.output.css</TailwindOutputFile>
 	</PropertyGroup>

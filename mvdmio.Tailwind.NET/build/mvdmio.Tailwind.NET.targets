@@ -1,0 +1,7 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Target Name="BuildCSS" BeforeTargets="Compile">
+		<Message Text="Running Tailwind binary: $(TailwindBinaryPath)" Importance="high" />
+		<Exec Command="start /b $(TailwindBinaryPath) --watch -i $(TailwindInputFile) -o $(TailwindOutputFile)" Condition=" '$(Configuration)' == 'Debug' " />
+		<Exec Command="$(TailwindBinaryPath) --minify -i $(TailwindInputFile) -o $(TailwindOutputFile)" Condition=" '$(Configuration)' == 'Release' " />
+	</Target>
+</Project>

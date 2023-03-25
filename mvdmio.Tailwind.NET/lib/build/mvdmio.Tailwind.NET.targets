@@ -1,5 +1,5 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<Target Name="CopyTailwindContent" BeforeTargets="BuildCSS" Condition="$(TailwindCopyDefaultFiles) == 'true'">
+	<Target Name="CopyTailwindContent" BeforeTargets="BuildTailwind" Condition="$(TailwindCopyDefaultFiles) == 'true'">
 		<Copy SourceFiles="$(TailwindConfigJsSourcePath)" DestinationFolder="$(MSBuildProjectDirectory)" Condition="!Exists('$(MSBuildProjectDirectory)\tailwind.config.js')" />
 		<Copy SourceFiles="$(TailwindInputCssSourcePath)" DestinationFolder="$(MSBuildProjectDirectory)\tailwind" Condition="!Exists('$(MSBuildProjectDirectory)\tailwind\tailwind.input.css')" />
 	</Target>

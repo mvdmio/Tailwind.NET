@@ -19,8 +19,24 @@ This does the following:
 You can change the input and output file paths by adding the following properties in your `.csproj`:
 ```
 <PropertyGroup>
-	<TailwindInputFile>path/to/your/input/file.css</TailwindInputFile>
-	<TailwindOutputFile>path/to/your/output/file.css</TailwindOutputFile>
+  <TailwindInputFile>path/to/your/input/file.css</TailwindInputFile>
+  <TailwindOutputFile>path/to/your/output/file.css</TailwindOutputFile>
+</PropertyGroup>
+```
+
+The defaults for these properties are:
+```
+<PropertyGroup>
+  <TailwindInputFile>tailwind/tailwind.input.css</TailwindInputFile>
+  <TailwindOutputFile>wwwroot/tailwind.output.css</TailwindOutputFile>
+</PropertyGroup>
+```
+
+### Disable default files copy action
+The library copies default files (`tailwind.config.js` and `tailwind/tailwind.input.css`) to your project. To disable this, add the following property:
+```
+<PropertyGroup>
+  <TailwindCopyDefaultFiles>false</TailwindCopyDefaultFiles>
 </PropertyGroup>
 ```
 

@@ -16,7 +16,15 @@
 
 		<!-- Construct the final binary file path -->
 		<TailwindBinaryPath>$(MSBuildThisFileDirectory)..\tools\tailwindcss-$(TailwindBinaryOS)-$(TailwindBinaryArch)$(TailwindBinaryExt)</TailwindBinaryPath>
-		<TailwindInputFile>./tailwind/tailwind.input.css</TailwindInputFile>
-		<TailwindOutputFile>./tailwind/tailwind.output.css</TailwindOutputFile>
+		
+		<!-- Files to inlcude in the target project -->
+		<TailwindConfigJsSourcePath>$(MSBuildThisFileDirectory)..\files\tailwind.config.js</TailwindConfigJsSourcePath>
+		<TailwindInputCssSourcePath>$(MSBuildThisFileDirectory)..\files\tailwind.input.css</TailwindInputCssSourcePath>
+
+		<!-- Variables -->
+		<TailwindCopyDefaultFiles>true</TailwindCopyDefaultFiles>
+		<TailwindInputFile>tailwind/tailwind.input.css</TailwindInputFile>
+		<TailwindOutputFile>wwwroot/tailwind.output.css</TailwindOutputFile>
+
 	</PropertyGroup>
 </Project>

@@ -7,7 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="mvdmio.Tailwind.NET" Version="1.0.2" />
+    <None Remove="C:\Users\michi\.nuget\packages\mvdmio.tailwind.net\1.0.6\contentFiles\any\any\tailwind.config.js" />
+    <None Remove="C:\Users\michi\.nuget\packages\mvdmio.tailwind.net\1.0.6\contentFiles\any\any\tailwind\tailwind.input.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="mvdmio.Tailwind.NET" Version="1.0.6" />
   </ItemGroup>
 
 </Project>

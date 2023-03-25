@@ -11,7 +11,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Version>1.0.6</Version>
+        <Version>1.0.7</Version>
         <Title>mvdmio.Tailwind.NET</Title>
         <Description>Adds Tailwind to your .NET project using the Standalone CLI.</Description>
         <Company>mvdmio</Company>
@@ -28,12 +28,7 @@
 	<ItemGroup>
         <None Include="lib\build\*" PackagePath="build" Pack="true" />
 		<None Include="lib\tools\*" PackagePath="tools" Pack="true" />
-		<None Include="lib\contentFiles\any\any\tailwind.config.js" PackagePath="contentFiles\any\any\tailwind.config.js" Pack="true">
-			<PrivateAssets>all</PrivateAssets>
-		</None>
-		<None Include="lib\contentFiles\any\any\tailwind\tailwind.input.css" PackagePath="contentFiles\any\any\tailwind\tailwind.input.css" Pack="true">
-			<PrivateAssets>all</PrivateAssets>
-		</None>
+        <None Include="lib\files\*" PackagePath="files" Pack="true" />
 	</ItemGroup>
 
 </Project>

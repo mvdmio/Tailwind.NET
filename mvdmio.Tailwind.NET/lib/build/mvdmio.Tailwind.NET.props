@@ -23,8 +23,10 @@
 
 		<!-- Variables -->
 		<TailwindCopyDefaultFiles>true</TailwindCopyDefaultFiles>
+		<TailwindWatch>true</TailwindWatch>
 		<TailwindInputFile>tailwind/tailwind.input.css</TailwindInputFile>
 		<TailwindOutputFile>wwwroot/tailwind.output.css</TailwindOutputFile>
 
+		<TailwindBaseCommand>$(TailwindBinaryPath) -i $(TailwindInputFile) -o $(TailwindOutputFile)</TailwindBaseCommand>
 	</PropertyGroup>
 </Project>

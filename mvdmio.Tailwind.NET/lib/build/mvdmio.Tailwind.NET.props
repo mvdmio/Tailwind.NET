@@ -15,7 +15,7 @@
 		<TailwindBinaryExt Condition="'$(OS)' != 'Windows_NT'"></TailwindBinaryExt>
 
 		<!-- Construct the final binary file path -->
-		<TailwindBinaryPath>tools\tailwindcss-$(TailwindBinaryOS)-$(TailwindBinaryArch)$(TailwindBinaryExt)</TailwindBinaryPath>
+		<TailwindBinaryPath>$(MSBuildThisFileDirectory)..\tools\tailwindcss-$(TailwindBinaryOS)-$(TailwindBinaryArch)$(TailwindBinaryExt)</TailwindBinaryPath>
 		<TailwindInputFile>./tailwind/tailwind.input.css</TailwindInputFile>
 		<TailwindOutputFile>./tailwind/tailwind.output.css</TailwindOutputFile>
 	</PropertyGroup>

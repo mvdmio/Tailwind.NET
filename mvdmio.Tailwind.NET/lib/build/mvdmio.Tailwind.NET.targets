@@ -1,4 +1,9 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Target Name="CopyTailwindContent" BeforeTargets="BuildCSS" Condition="$(TailwindCopyDefaultFiles) == 'true'">
+		<Copy SourceFiles="$(TailwindConfigJsSourcePath)" DestinationFolder="$(MSBuildProjectDirectory)" Condition="!Exists('$(MSBuildProjectDirectory)\tailwind.config.js')" />
+		<Copy SourceFiles="$(TailwindInputCssSourcePath)" DestinationFolder="$(MSBuildProjectDirectory)\tailwind" Condition="!Exists('$(MSBuildProjectDirectory)\tailwind\tailwind.input.css')" />
+	</Target>
+
 	<Target Name="BuildTailwind" AfterTargets="Compile">
 		<Exec Condition="'$(Configuration)'=='Debug'"   Command="$(TailwindBinaryPath) -i $(TailwindInputFile) -o $(TailwindOutputFile)" />
 		<Exec Condition="'$(Configuration)'=='Release'" Command="$(TailwindBinaryPath) -i $(TailwindInputFile) -o $(TailwindOutputFile) --minify" />

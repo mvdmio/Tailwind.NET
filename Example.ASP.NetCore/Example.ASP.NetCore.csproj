@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
 	<PropertyGroup>
 		<TargetFramework>net7.0</TargetFramework>
@@ -7,16 +7,12 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
+		<TailwindCopyDefaultFiles>true</TailwindCopyDefaultFiles>
 		<TailwindWatch>false</TailwindWatch>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Remove="C:\Users\michi\.nuget\packages\mvdmio.tailwind.net\1.0.6\contentFiles\any\any\tailwind.config.js" />
-		<None Remove="C:\Users\michi\.nuget\packages\mvdmio.tailwind.net\1.0.6\contentFiles\any\any\tailwind\tailwind.input.css" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<PackageReference Include="mvdmio.Tailwind.NET" Version="1.0.9" />
+		<PackageReference Include="mvdmio.Tailwind.NET" Version="1.0.10" />
 	</ItemGroup>
 
 </Project>

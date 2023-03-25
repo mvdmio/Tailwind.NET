@@ -4,4 +4,5 @@
 
 .button {
    @apply bg-blue-500;
+   @apply border-blue-500;
 }

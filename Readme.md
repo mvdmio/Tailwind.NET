@@ -4,6 +4,7 @@ This package makes it possible to use [TailwindCSS](https://tailwindcss.com) in 
 It uses the [Tailwind Standalone CLI](https://tailwindcss.com/blog/standalone-cli) to make this possible.
 
 ## Usage
+After installation, the NuGet package will automatically build the tailwind input file on every build. It will minify the output file when in Release mode.
 
 ### Install the NuGet package
 ```
@@ -40,3 +41,10 @@ The library copies default files (`tailwind.config.js` and `tailwind/tailwind.in
 </PropertyGroup>
 ```
 
+### Tailwind Watch
+Tailwind Watch does not work (currently) with this NuGet package. All builds must be manually triggered by running the build in Visual Studio or using the `dotnet build` command.
+
+If you want to use Tailwind watch, install Tailwind using NPM and use the following command:
+```
+npx tailwind -i tailwind/tailwind.input.css -o wwwroot/tailwind.output.css --watch
+```

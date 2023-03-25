@@ -1,46 +1,18 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<!-- Set the OS portion of the binary file name -->
-		<TailwindBinaryOS>
-			<Choose>
-				<When Condition="'$(OS)' == 'Windows_NT'">
-					windows
-				</When>
-				<When Condition="$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::OSX)))">
-					macos
-				</When>
-				<Otherwise>
-					linux
-				</Otherwise>
-			</Choose>
-		</TailwindBinaryOS>
-
+		<TailwindBinaryOS Condition="'$(OS)' == 'Windows_NT'">windows</TailwindBinaryOS>
+		<TailwindBinaryOS Condition="'$(OS)' != 'Windows_NT' and $([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::OSX)))">macos</TailwindBinaryOS>
+		<TailwindBinaryOS Condition="'$(OS)' != 'Windows_NT' and !$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::OSX)))">linux</TailwindBinaryOS>
+  
 		<!-- Set the architecture portion of the binary file name -->
-		<TailwindBinaryArch>
-			<Choose>
-				<When Condition="'$(Platform)' == 'ARM64'">
-					arm64
-				</When>
-				<When Condition="'$(Platform)' == 'ARM'">
-					armv7
-				</When>
-				<Otherwise>
-					x64
-				</Otherwise>
-			</Choose>
-		</TailwindBinaryArch>
-
-
+		<TailwindBinaryArch Condition="'$(Platform)' == 'ARM64'">arm64</TailwindBinaryArch>
+		<TailwindBinaryArch Condition="'$(Platform)' == 'ARM'">armv7</TailwindBinaryArch>
+		<TailwindBinaryArch Condition="'$(Platform)' != 'ARM64' and '$(Platform)' != 'ARM'">x64</TailwindBinaryArch>
+  
 		<!-- Set the executable extension for the binary -->
-		<TailwindBinaryExt>
-			<Choose>
-				<When Condition="'$(OS)' == 'Windows_NT'">
-					.exe
-				</When>
-				<Otherwise>
-				</Otherwise>
-			</Choose>
-		</TailwindBinaryExt>
+		<TailwindBinaryExt Condition="'$(OS)' == 'Windows_NT'">.exe</TailwindBinaryExt>
+		<TailwindBinaryExt Condition="'$(OS)' != 'Windows_NT'"></TailwindBinaryExt>
 
 		<!-- Construct the final binary file path -->
 		<TailwindBinaryPath>tools\tailwindcss-$(TailwindBinaryOS)-$(TailwindBinaryArch)$(TailwindBinaryExt)</TailwindBinaryPath>

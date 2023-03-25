@@ -4,9 +4,8 @@
 		<Copy SourceFiles="$(TailwindInputCssSourcePath)" DestinationFolder="$(MSBuildProjectDirectory)\tailwind" Condition="!Exists('$(MSBuildProjectDirectory)\tailwind\tailwind.input.css')" />
 	</Target>
 
-	<Target Name="BuildTailwind" BeforeTargets="BeforeBuild">
-		<Exec Condition="'$(Configuration)'=='Debug' and $(TailwindWatch)=='true'"   Command="start /b $(TailwindBaseCommand) --watch" />
-		<Exec Condition="'$(Configuration)'=='Debug' and $(TailwindWatch)!='true'"   Command="$(TailwindBaseCommand)" />
-		<Exec Condition="'$(Configuration)'=='Release'"                              Command="$(TailwindBaseCommand) --minify" />
+	<Target Name="BuildTailwind" BeforeTargets="CoreCompile">
+		<Exec Condition="'$(Configuration)'=='Debug'" Command="$(TailwindBaseCommand)" />
+		<Exec Condition="'$(Configuration)'=='Release'" Command="$(TailwindBaseCommand) --minify" />
 	</Target>
 </Project>

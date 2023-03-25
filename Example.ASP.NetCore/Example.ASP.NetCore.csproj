@@ -8,11 +8,9 @@
 
 	<PropertyGroup>
 		<TailwindCopyDefaultFiles>true</TailwindCopyDefaultFiles>
-		<TailwindWatch>false</TailwindWatch>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<PackageReference Include="mvdmio.Tailwind.NET" Version="1.0.10" />
 	</ItemGroup>
-
 </Project>

@@ -5,7 +5,7 @@ It uses the [Tailwind Standalone CLI](https://tailwindcss.com/blog/standalone-cl
 
 ## Usage
 
-1. Install the NuGet package
+### Install the NuGet package
 ```
 dotnet add package mvdmio.Tailwind.NET
 ```
@@ -15,7 +15,7 @@ This does the following:
   2. Creates a `tailwind.input.css` file in the `<root>/tailwind/` folder
   3. Adds build targets to your `.csproj` that automatically build the TailwindCSS input file
 
-## Customizing the input and output files
+### Customizing the input and output files
 You can change the input and output file paths by adding the following properties in your `.csproj`:
 ```
 <PropertyGroup>

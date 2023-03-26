@@ -101,5 +101,5 @@ Tailwind Watch does not work (currently) with this NuGet package. All builds mus
 
 If you want to use Tailwind watch, install Tailwind using NPM and use the following command:
 ```
-npx tailwind -i tailwind/tailwind.input.css -o wwwroot/tailwind.output.css --watch
+npx tailwind -c tailwind/tailwind.config.js -i tailwind/tailwind.input.css -o wwwroot/tailwind.output.css --watch
 ```

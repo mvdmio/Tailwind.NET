@@ -13,8 +13,8 @@ dotnet add package mvdmio.Tailwind.NET
 
 This does the following:
   1. Creates a `<root>/Tailwind` folder with the following files:
-    1. `tailwind.config.js` with some default configuration.
-    2. `tailwind.input.css` with the basics to get tailwind running.
+    - `tailwind.config.js` with some default configuration.
+    - `tailwind.input.css` with the basics to get tailwind running.
   2. Adds build targets to your `.csproj` that automatically build the TailwindCSS input file
 
 ### Tailwind Functionality

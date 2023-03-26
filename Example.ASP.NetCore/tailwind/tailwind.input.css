@@ -2,6 +2,16 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@layer base {
+   a {
+      @apply inline-block text-sky-600 no-underline;
+   }
+
+   a:hover {
+      @apply underline text-sky-800;
+   }
+}
+
 .button {
    @apply bg-blue-500;
    @apply border-blue-500;

@@ -5,11 +5,16 @@
 	</Target>
 
 	<Target Name="BuildTailwind" BeforeTargets="CoreCompile">
+		<PropertyGroup>
+			<TailwindBaseCommand>$(TailwindBinaryPath) -c $(TailwindConfigFile) -i $(TailwindInputFile) -o $(TailwindOutputFile)</TailwindBaseCommand>
+		</PropertyGroup>
+
 		<Message Text="Building tailwind ($(Configuration))."  Importance="high" />
 		<Message Text="  Config file : $(TailwindConfigFile)"  Importance="high" />
 		<Message Text="  Input file  : $(TailwindInputFile)"   Importance="high" />
 		<Message Text="  Output file : $(TailwindOutputFile)"  Importance="high" />
 		<Message Text="  Base Command: $(TailwindBaseCommand)" Importance="high" />
+
 		<Exec Condition="'$(Configuration)'=='Debug'" Command="$(TailwindBaseCommand)" />
 		<Exec Condition="'$(Configuration)'=='Release'" Command="$(TailwindBaseCommand) --minify" />
 	</Target>

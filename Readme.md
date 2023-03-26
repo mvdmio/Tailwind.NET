@@ -16,10 +16,11 @@ This does the following:
   2. Creates a `tailwind.input.css` file in the `<root>/tailwind/` folder
   3. Adds build targets to your `.csproj` that automatically build the TailwindCSS input file
 
-### Customizing the input and output files
+### Customizing file locations
 You can change the input and output file paths by adding the following properties in your `.csproj`:
 ```
 <PropertyGroup>
+  <TailwindConfigFile>path/to/your/tailwind.config.js</TailwindConfigFile>
   <TailwindInputFile>path/to/your/input/file.css</TailwindInputFile>
   <TailwindOutputFile>path/to/your/output/file.css</TailwindOutputFile>
 </PropertyGroup>
@@ -28,13 +29,14 @@ You can change the input and output file paths by adding the following propertie
 The defaults for these properties are:
 ```
 <PropertyGroup>
+  <TailwindConfigFile>tailwind/tailwind.config.js</TailwindConfigFile>
   <TailwindInputFile>tailwind/tailwind.input.css</TailwindInputFile>
   <TailwindOutputFile>wwwroot/tailwind.output.css</TailwindOutputFile>
 </PropertyGroup>
 ```
 
 ### Disable default files copy action
-The library copies default files (`tailwind.config.js` and `tailwind/tailwind.input.css`) to your project. To disable this, add the following property:
+The library copies default files (`tailwind/tailwind.config.js` and `tailwind/tailwind.input.css`) to your project. To disable this, add the following property:
 ```
 <PropertyGroup>
   <TailwindCopyDefaultFiles>false</TailwindCopyDefaultFiles>

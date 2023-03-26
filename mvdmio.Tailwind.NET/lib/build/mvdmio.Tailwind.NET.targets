@@ -5,6 +5,7 @@
 	</Target>
 
 	<Target Name="BuildTailwind" BeforeTargets="CoreCompile">
+		<Message Text="Building tailwind ($Configuration). Base Command: $(TailwindBaseCommand)" Importance="high"></Message>
 		<Exec Condition="'$(Configuration)'=='Debug'" Command="$(TailwindBaseCommand)" />
 		<Exec Condition="'$(Configuration)'=='Release'" Command="$(TailwindBaseCommand) --minify" />
 	</Target>

@@ -17,6 +17,7 @@ This does the following:
   3. Adds build targets to your `.csproj` that automatically build the TailwindCSS input file
 
 ### Tailwind Functionality
+More information about Tailwind Functions & Directives: [https://tailwindcss.com/docs/functions-and-directives](https://tailwindcss.com/docs/functions-and-directives).
 
 #### Layers
 Tailwind recommends using layers like so:

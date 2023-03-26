@@ -12,9 +12,10 @@ dotnet add package mvdmio.Tailwind.NET
 ```
 
 This does the following:
-  1. Creates a `tailwind.config.js` in the root of your project with some default configuration.
-  2. Creates a `tailwind.input.css` file in the `<root>/tailwind/` folder
-  3. Adds build targets to your `.csproj` that automatically build the TailwindCSS input file
+  1. Creates a `<root>/Tailwind` folder with the following files:
+    1. `tailwind.config.js` with some default configuration.
+    2. `tailwind.input.css` with the basics to get tailwind running.
+  2. Adds build targets to your `.csproj` that automatically build the TailwindCSS input file
 
 ### Tailwind Functionality
 More information about Tailwind Functions & Directives: [https://tailwindcss.com/docs/functions-and-directives](https://tailwindcss.com/docs/functions-and-directives).

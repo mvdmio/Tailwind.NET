@@ -13,6 +13,7 @@
 		<Message Text="  Config file : $(TailwindConfigFile)"  Importance="high" />
 		<Message Text="  Input file  : $(TailwindInputFile)"   Importance="high" />
 		<Message Text="  Output file : $(TailwindOutputFile)"  Importance="high" />
+		<Message Text="  Binary path : $(TailwindBinaryPath)"  Importance="high" />
 		<Message Text="  Base Command: $(TailwindBaseCommand)" Importance="high" />
 
 		<Exec Condition="'$(Configuration)'=='Debug'" Command="$(TailwindBaseCommand)" />

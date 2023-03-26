@@ -11,6 +11,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="mvdmio.Tailwind.NET" Version="1.1.0-beta.3" />
+		<PackageReference Include="mvdmio.Tailwind.NET" Version="1.1.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="wwwroot\img\" />
 	</ItemGroup>
 </Project>

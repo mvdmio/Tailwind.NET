@@ -25,7 +25,5 @@
 		<TailwindConfigFile>Tailwind/tailwind.config.js</TailwindConfigFile>
 		<TailwindInputFile>Tailwind/tailwind.input.css</TailwindInputFile>
 		<TailwindOutputFile>wwwroot/tailwind.output.css</TailwindOutputFile>
-
-		<TailwindBaseCommand>$(TailwindBinaryPath) -i $(TailwindInputFile) -o $(TailwindOutputFile) -c $(TailwindConfigFile)</TailwindBaseCommand>
 	</PropertyGroup>
 </Project>

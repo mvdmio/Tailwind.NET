@@ -16,6 +16,57 @@ This does the following:
   2. Creates a `tailwind.input.css` file in the `<root>/tailwind/` folder
   3. Adds build targets to your `.csproj` that automatically build the TailwindCSS input file
 
+### Tailwind Functionality
+
+#### Layers
+Tailwind recommends using layers like so:
+```css
+# /tailwind/tailwind.input.css
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+  # Your base module additions
+}
+
+@layer components {
+  # Your components module additions
+}
+
+@layer utilities {
+  # Your utilities module additions
+}
+```
+
+#### Import
+You can use `@import` to import different files like so:
+```
+# /tailwind/tailwind.input.css
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import './some-other-file.css'
+```
+
+```
+# /tailwind/some-other-file.css
+
+.select2-dropdown {
+  @apply rounded-b-lg shadow-md;
+}
+.select2-search {
+  @apply border border-gray-300 rounded;
+}
+.select2-results__group {
+  @apply text-lg font-bold text-gray-900;
+}
+/* ... */
+```
+
+## Customization
+
 ### Customizing file locations
 You can change the input and output file paths by adding the following properties in your `.csproj`:
 ```

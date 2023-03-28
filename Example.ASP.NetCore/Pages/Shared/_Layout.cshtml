@@ -7,14 +7,9 @@
    <link rel="stylesheet" href="~/tailwind.output.css" asp-append-version="true" />
 </head>
 <body class="w-screen h-screen flex flex-col">
-   <header class="flex-shrink flex flex-row gap-4 bg-blue-300 px-4 py-2 h-12 items-center justify-start">
-   <img src="~/img/mvdmio-logo.png" alt="logo" class="h-full" />
-   <div>
-   </div>
-   <nav class="w-full">
-      <a asp-area="" asp-page="/Index" class="text-black hover:text-black">Home</a>
-   </nav>
-</header>
+   <header class="flex-shrink flex flex-row gap-4 bg-blue-300 px-4 py-2 h-12 items-center justify-center">
+      <img src="~/img/mvdmio-logo.png" alt="logo" class="h-full" />
+   </header>
    <main role="main" class="flex-grow">
       @RenderBody()
    </main>

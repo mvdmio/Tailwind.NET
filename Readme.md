@@ -103,3 +103,8 @@ If you want to use Tailwind watch, install Tailwind using NPM and use the follow
 ```
 npx tailwind -c tailwind/tailwind.config.js -i tailwind/tailwind.input.css -o wwwroot/tailwind.output.css --watch
 ```
+
+# Contact
+For issues with the package, please create a new issue on GitHub. Pull requests are also welcome.
+
+For anything else, please contact me at [michiel@mvdm.io](mailto:michiel@mvdm.io).

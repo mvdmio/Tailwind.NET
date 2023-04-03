@@ -1,19 +1,4 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<Target Name="CopyTailwindContent" BeforeTargets="BuildTailwind" Condition="'$(TailwindCopyDefaultFiles)' == 'true'">
-		<PropertyGroup>
-			<ShouldCopyConfig>!Exists('$(MSBuildProjectDirectory)\Tailwind\Tailwind.config.js')</ShouldCopyConfig>
-			<ShouldCopyInput>!Exists('$(MSBuildProjectDirectory)\Tailwind\tailwind.input.css')</ShouldCopyInput>
-		</PropertyGroup>
-
-		<Message Text="Copying Tailwind files."                                 Importance="high" Condition="$(ShouldCopyConfig) Or $(ShouldCopyInput)" />
-		<Message Text="  Config: $(TailwindFilesSourcepath)\tailwind.config.js" Importance="high" Condition="$(ShouldCopyConfig)" />
-		<Message Text="  Input: $(TailwindFilesSourcepath)\tailwind.input.css"  Importance="high" Condition="$(ShouldCopyInput)" />
-		<Message Text="  Destination: $(MSBuildProjectDirectory)\Tailwind"      Importance="high" Condition="$(ShouldCopyConfig) Or $(ShouldCopyInput)" />
-
-		<Copy SourceFiles="$(TailwindFilesSourcepath)\tailwind.config.js" DestinationFolder="$(MSBuildProjectDirectory)\Tailwind" Condition="$(ShouldCopyConfig)" />
-		<Copy SourceFiles="$(TailwindFilesSourcepath)\tailwind.input.css" DestinationFolder="$(MSBuildProjectDirectory)\Tailwind" Condition="$(ShouldCopyInput)" />
-	</Target>
-
 	<Target Name="BuildTailwind" BeforeTargets="CoreCompile">
 		<PropertyGroup>
 			<TailwindBaseCommand>"$(TailwindBinaryPath)" -c "$(TailwindConfigFile)" -i "$(TailwindInputFile)" -o "$(TailwindOutputFile)"</TailwindBaseCommand>
@@ -28,5 +13,20 @@
 
 		<Exec Condition="'$(Configuration)'=='Debug'" Command="$(TailwindBaseCommand)" />
 		<Exec Condition="'$(Configuration)'=='Release'" Command="$(TailwindBaseCommand) --minify" />
+	</Target>
+
+	<Target Name="CopyTailwindContent" BeforeTargets="BuildTailwind" Condition="'$(TailwindCopyDefaultFiles)'=='true'">
+		<PropertyGroup>
+			<ShouldCopyConfig Condition="!Exists('$(MSBuildProjectDirectory)\Tailwind\Tailwind.config.js')">true</ShouldCopyConfig>
+			<ShouldCopyInput Condition="!Exists('$(MSBuildProjectDirectory)\Tailwind\tailwind.input.css')">true</ShouldCopyInput>
+		</PropertyGroup>
+
+		<Message Text="Copying Tailwind files."                                 Importance="high" Condition="'$(ShouldCopyConfig)'=='true' Or '$(ShouldCopyInput)'=='true'" />
+		<Message Text="  Config: $(TailwindFilesSourcepath)\tailwind.config.js" Importance="high" Condition="'$(ShouldCopyConfig)'=='true'" />
+		<Message Text="  Input: $(TailwindFilesSourcepath)\tailwind.input.css"  Importance="high" Condition="'$(ShouldCopyInput)'=='true'" />
+		<Message Text="  Destination: $(MSBuildProjectDirectory)\Tailwind"      Importance="high" Condition="'$(ShouldCopyConfig)'=='true' Or '$(ShouldCopyInput)'=='true'" />
+
+		<Copy SourceFiles="$(TailwindFilesSourcepath)\tailwind.config.js" DestinationFolder="$(MSBuildProjectDirectory)\Tailwind" Condition="$(ShouldCopyConfig)" />
+		<Copy SourceFiles="$(TailwindFilesSourcepath)\tailwind.input.css" DestinationFolder="$(MSBuildProjectDirectory)\Tailwind" Condition="$(ShouldCopyInput)" />
 	</Target>
 </Project>

@@ -16,7 +16,7 @@
 
 	<Target Name="BuildTailwind" BeforeTargets="CoreCompile">
 		<PropertyGroup>
-			<TailwindBaseCommand>$(TailwindBinaryPath) -c $(TailwindConfigFile) -i $(TailwindInputFile) -o $(TailwindOutputFile)</TailwindBaseCommand>
+			<TailwindBaseCommand>"$(TailwindBinaryPath)" -c "$(TailwindConfigFile)" -i "$(TailwindInputFile)" -o "$(TailwindOutputFile)"</TailwindBaseCommand>
 		</PropertyGroup>
 
 		<Message Text="Building tailwind ($(Configuration))."  Importance="high" />

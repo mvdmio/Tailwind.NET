@@ -5,10 +5,10 @@
 			<ShouldCopyInput>!Exists('$(MSBuildProjectDirectory)\Tailwind\tailwind.input.css')</ShouldCopyInput>
 		</PropertyGroup>
 
-		<Message Text="Copying Tailwind files."                                 Importance="high" Condition="$(ShouldCopyConfig) || $(ShouldCopyInput)" />
+		<Message Text="Copying Tailwind files."                                 Importance="high" Condition="$(ShouldCopyConfig) Or $(ShouldCopyInput)" />
 		<Message Text="  Config: $(TailwindFilesSourcepath)\tailwind.config.js" Importance="high" Condition="$(ShouldCopyConfig)" />
 		<Message Text="  Input: $(TailwindFilesSourcepath)\tailwind.input.css"  Importance="high" Condition="$(ShouldCopyInput)" />
-		<Message Text="  Destination: $(MSBuildProjectDirectory)\Tailwind"      Importance="high" Condition="$(ShouldCopyConfig) || $(ShouldCopyInput)" />
+		<Message Text="  Destination: $(MSBuildProjectDirectory)\Tailwind"      Importance="high" Condition="$(ShouldCopyConfig) Or $(ShouldCopyInput)" />
 
 		<Copy SourceFiles="$(TailwindFilesSourcepath)\tailwind.config.js" DestinationFolder="$(MSBuildProjectDirectory)\Tailwind" Condition="$(ShouldCopyConfig)" />
 		<Copy SourceFiles="$(TailwindFilesSourcepath)\tailwind.input.css" DestinationFolder="$(MSBuildProjectDirectory)\Tailwind" Condition="$(ShouldCopyInput)" />

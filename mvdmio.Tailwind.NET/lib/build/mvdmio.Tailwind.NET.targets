@@ -16,17 +16,12 @@
 	</Target>
 
 	<Target Name="CopyTailwindContent" BeforeTargets="BuildTailwind" Condition="'$(TailwindCopyDefaultFiles)'=='true'">
-		<PropertyGroup>
-			<ShouldCopyConfig Condition="!Exists('$(MSBuildProjectDirectory)\Tailwind\Tailwind.config.js')">true</ShouldCopyConfig>
-			<ShouldCopyInput Condition="!Exists('$(MSBuildProjectDirectory)\Tailwind\tailwind.input.css')">true</ShouldCopyInput>
-		</PropertyGroup>
+		<Message Text="Copying Tailwind files if they don't exist yet."         Importance="high" />
+		<Message Text="  Config: $(TailwindFilesSourcepath)\tailwind.config.js" Importance="high" />
+		<Message Text="  Input: $(TailwindFilesSourcepath)\tailwind.input.css"  Importance="high" />
+		<Message Text="  Destination: $(MSBuildProjectDirectory)\Tailwind"      Importance="high" />
 
-		<Message Text="Copying Tailwind files."                                 Importance="high" Condition="'$(ShouldCopyConfig)'=='true' Or '$(ShouldCopyInput)'=='true'" />
-		<Message Text="  Config: $(TailwindFilesSourcepath)\tailwind.config.js" Importance="high" Condition="'$(ShouldCopyConfig)'=='true'" />
-		<Message Text="  Input: $(TailwindFilesSourcepath)\tailwind.input.css"  Importance="high" Condition="'$(ShouldCopyInput)'=='true'" />
-		<Message Text="  Destination: $(MSBuildProjectDirectory)\Tailwind"      Importance="high" Condition="'$(ShouldCopyConfig)'=='true' Or '$(ShouldCopyInput)'=='true'" />
-
-		<Copy SourceFiles="$(TailwindFilesSourcepath)\tailwind.config.js" DestinationFolder="$(MSBuildProjectDirectory)\Tailwind" Condition="$(ShouldCopyConfig)" />
-		<Copy SourceFiles="$(TailwindFilesSourcepath)\tailwind.input.css" DestinationFolder="$(MSBuildProjectDirectory)\Tailwind" Condition="$(ShouldCopyInput)" />
+		<Copy SourceFiles="$(TailwindFilesSourcepath)\tailwind.config.js" DestinationFolder="$(MSBuildProjectDirectory)\Tailwind" Condition="!Exists('$(MSBuildProjectDirectory)\Tailwind\Tailwind.config.js')" />
+		<Copy SourceFiles="$(TailwindFilesSourcepath)\tailwind.input.css" DestinationFolder="$(MSBuildProjectDirectory)\Tailwind" Condition="!Exists('$(MSBuildProjectDirectory)\Tailwind\tailwind.input.css')" />
 	</Target>
 </Project>

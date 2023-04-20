@@ -15,6 +15,22 @@
 		<Exec Condition="'$(Configuration)'=='Release'" Command="$(TailwindBaseCommand) --minify" />
 	</Target>
 
+	<Target Name="WatchTailwind">
+		<PropertyGroup>
+			<TailwindBaseCommand>"$(TailwindBinaryPath)" -c "$(TailwindConfigFile)" -i "$(TailwindInputFile)" -o "$(TailwindOutputFile)"</TailwindBaseCommand>
+			<TailwindWatchCommand>$(TailwindBaseCommand) --watch</TailwindWatchCommand>
+		</PropertyGroup>
+
+		<Message Text="Starting tailwind watch"  Importance="high" />
+		<Message Text="  Config file : $(TailwindConfigFile)"  Importance="high" />
+		<Message Text="  Input file  : $(TailwindInputFile)"   Importance="high" />
+		<Message Text="  Output file : $(TailwindOutputFile)"  Importance="high" />
+		<Message Text="  Binary path : $(TailwindBinaryPath)"  Importance="high" />
+		<Message Text="  Command: $(TailwindWatchCommand)" Importance="high" />
+
+		<Exec Command="$(TailwindWatchCommand)" />
+	</Target>
+
 	<Target Name="CopyTailwindContent" BeforeTargets="BuildTailwind" Condition="'$(TailwindCopyDefaultFiles)'=='true'">
 		<Message Text="Copying Tailwind files if they don't exist yet."         Importance="high" />
 		<Message Text="  Config: $(TailwindFilesSourcepath)\tailwind.config.js" Importance="high" />

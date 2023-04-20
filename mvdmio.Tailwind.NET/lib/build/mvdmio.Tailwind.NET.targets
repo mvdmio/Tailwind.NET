@@ -29,7 +29,7 @@
 		<Message Text="  Binary path : $(TailwindBinaryPath)" Importance="high" />
 		<Message Text="  Command: $(TailwindWatchCommand)"    Importance="high" />
 
-		<Exec Command="start cmd.exe /c $(TailwindWatchCommand)" />
+		<Exec Command="$(TailwindWatchCommand)" />
 	</Target>
 
 	<Target Name="CopyTailwindContent" BeforeTargets="BuildTailwind" Condition="'$(TailwindCopyDefaultFiles)'=='true'">

@@ -4,14 +4,15 @@
 			<TailwindBaseCommand>"$(TailwindBinaryPath)" -c "$(TailwindConfigFile)" -i "$(TailwindInputFile)" -o "$(TailwindOutputFile)"</TailwindBaseCommand>
 		</PropertyGroup>
 
-		<Message Text="Building tailwind ($(Configuration))."  Importance="high" />
-		<Message Text="  Config file : $(TailwindConfigFile)"  Importance="high" />
-		<Message Text="  Input file  : $(TailwindInputFile)"   Importance="high" />
-		<Message Text="  Output file : $(TailwindOutputFile)"  Importance="high" />
-		<Message Text="  Binary path : $(TailwindBinaryPath)"  Importance="high" />
-		<Message Text="  Base Command: $(TailwindBaseCommand)" Importance="high" />
+		<Message Text="Building tailwind ($(Configuration))."      Importance="high" />
+		<Message Text="  Config file : $(TailwindConfigFile)"      Importance="high" />
+		<Message Text="  Input file  : $(TailwindInputFile)"       Importance="high" />
+		<Message Text="  Output file : $(TailwindOutputFile)"      Importance="high" />
+		<Message Text="  Binary path : $(TailwindBinaryPath)"      Importance="high" />
+		<Message Text="  Command: $(TailwindBaseCommand)"          Importance="high" Condition="'$(Configuration)'=='Debug'" />
+		<Message Text="  Command: $(TailwindBaseCommand) --minify" Importance="high" Condition="'$(Configuration)'=='Release'" />
 
-		<Exec Condition="'$(Configuration)'=='Debug'" Command="$(TailwindBaseCommand)" />
+		<Exec Condition="'$(Configuration)'=='Debug'"   Command="$(TailwindBaseCommand)" />
 		<Exec Condition="'$(Configuration)'=='Release'" Command="$(TailwindBaseCommand) --minify" />
 	</Target>
 
@@ -21,14 +22,14 @@
 			<TailwindWatchCommand>$(TailwindBaseCommand) --watch</TailwindWatchCommand>
 		</PropertyGroup>
 
-		<Message Text="Starting tailwind watch"  Importance="high" />
-		<Message Text="  Config file : $(TailwindConfigFile)"  Importance="high" />
-		<Message Text="  Input file  : $(TailwindInputFile)"   Importance="high" />
-		<Message Text="  Output file : $(TailwindOutputFile)"  Importance="high" />
-		<Message Text="  Binary path : $(TailwindBinaryPath)"  Importance="high" />
-		<Message Text="  Command: $(TailwindWatchCommand)" Importance="high" />
+		<Message Text="Starting tailwind watch"               Importance="high" />
+		<Message Text="  Config file : $(TailwindConfigFile)" Importance="high" />
+		<Message Text="  Input file  : $(TailwindInputFile)"  Importance="high" />
+		<Message Text="  Output file : $(TailwindOutputFile)" Importance="high" />
+		<Message Text="  Binary path : $(TailwindBinaryPath)" Importance="high" />
+		<Message Text="  Command: $(TailwindWatchCommand)"    Importance="high" />
 
-		<Exec Command="$(TailwindWatchCommand)" />
+		<Exec Command="start cmd.exe /c $(TailwindWatchCommand)" />
 	</Target>
 
 	<Target Name="CopyTailwindContent" BeforeTargets="BuildTailwind" Condition="'$(TailwindCopyDefaultFiles)'=='true'">

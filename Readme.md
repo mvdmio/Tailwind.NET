@@ -97,9 +97,14 @@ The library copies default files (`tailwind/tailwind.config.js` and `tailwind/ta
 ```
 
 ### Tailwind Watch
-Tailwind Watch does not work (currently) with this NuGet package. All builds must be manually triggered by running the build in Visual Studio or using the `dotnet build` command.
+The package contains a task for running `tailwind --watch` in a separate window. To do so, open a terminal in the folder of your project, and run the following command. Note that you need to have [Visual Studio Build tools](https://visualstudio.microsoft.com/downloads/?q=build+tools#build-tools-for-visual-studio-2022) installed for this command to work.
+```
+msbuild /t:WatchTailwind
+--or--
+dotnet msbuild /t:WatchTailwind
+```
 
-If you want to use Tailwind watch, install Tailwind using NPM and use the following command:
+Of course you can also install Tailwind using NPM and use the following command. This will **not** use this package to build your tailwind.
 ```
 npx tailwind -c tailwind/tailwind.config.js -i tailwind/tailwind.input.css -o wwwroot/tailwind.output.css --watch
 ```

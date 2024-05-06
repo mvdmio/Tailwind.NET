@@ -1,3 +1,5 @@
+# Requires the Github CLI: https://cli.github.com/
+
 param(
   [string] $version = ""
 )

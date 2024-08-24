@@ -6,9 +6,9 @@
 		<TailwindBinaryOS Condition="'$(OS)' != 'Windows_NT' and !$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::OSX)))">linux</TailwindBinaryOS>
   
 		<!-- Set the architecture portion of the binary file name -->
-		<TailwindBinaryArch Condition="'$(Platform)' == 'ARM64'">arm64</TailwindBinaryArch>
-		<TailwindBinaryArch Condition="'$(Platform)' == 'ARM'">armv7</TailwindBinaryArch>
-		<TailwindBinaryArch Condition="'$(Platform)' != 'ARM64' and '$(Platform)' != 'ARM'">x64</TailwindBinaryArch>
+		<TailwindBinaryArch Condition="'$(PROCESSOR_ARCHITECTURE)' == 'ARM64'">arm64</TailwindBinaryArch>
+		<TailwindBinaryArch Condition="'$(PROCESSOR_ARCHITECTURE)' == 'ARM'">armv7</TailwindBinaryArch>
+		<TailwindBinaryArch Condition="'$(PROCESSOR_ARCHITECTURE)' != 'ARM64' and '$(PROCESSOR_ARCHITECTURE)' != 'ARM'">x64</TailwindBinaryArch>
   
 		<!-- Set the executable extension for the binary -->
 		<TailwindBinaryExt Condition="'$(OS)' == 'Windows_NT'">.exe</TailwindBinaryExt>

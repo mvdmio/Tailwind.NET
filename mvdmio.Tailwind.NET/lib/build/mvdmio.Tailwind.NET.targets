@@ -14,14 +14,15 @@
 			<TailwindBaseCommand>"$(TailwindBinaryPath)" -c "$(TailwindConfigFile)" -i "$(TailwindInputFile)" -o "$(TailwindOutputFile)"</TailwindBaseCommand>
 		</PropertyGroup>
 
-		<Message Text="Building tailwind ($(Configuration))."      Importance="high" />
-		<Message Text="  OS          : $(OS)"                      Importance="high" />
-		<Message Text="  Platform    : $(Platform)"                Importance="high" />
-		<Message Text="  Config file : $(TailwindConfigFile)"      Importance="high" />
-		<Message Text="  Input file  : $(TailwindInputFile)"       Importance="high" />
-		<Message Text="  Output file : $(TailwindOutputFile)"      Importance="high" />
-		<Message Text="  Binary file : $(TailwindBinaryFile)"      Importance="high" />
-		<Message Text="  Binary path : $(TailwindBinaryPath)"      Importance="high" />
+		<Message Text="Building tailwind ($(Configuration))."                 Importance="high" />
+		<Message Text="  OS                     : $(OS)"                      Importance="high" />
+		<Message Text="  Platform               : $(Platform)"                Importance="high" />
+		<Message Text="  Processor Architecture : $(PROCESSOR_ARCHITECTURE)"  Importance="high" />
+		<Message Text="  Config file            : $(TailwindConfigFile)"      Importance="high" />
+		<Message Text="  Input file             : $(TailwindInputFile)"       Importance="high" />
+		<Message Text="  Output file            : $(TailwindOutputFile)"      Importance="high" />
+		<Message Text="  Binary file            : $(TailwindBinaryFile)"      Importance="high" />
+		<Message Text="  Binary path            : $(TailwindBinaryPath)"      Importance="high" />
 		<Message Text="  Command: $(TailwindBaseCommand)"          Importance="high" Condition="'$(Configuration)'=='Debug'" />
 		<Message Text="  Command: $(TailwindBaseCommand) --minify" Importance="high" Condition="'$(Configuration)'=='Release'" />
 

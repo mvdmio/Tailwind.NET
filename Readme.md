@@ -71,7 +71,7 @@ You can use `@import` to import different files like so:
 
 ### Customizing file locations
 You can change the input and output file paths by adding the following properties in your `.csproj`:
-```
+```xml
 <PropertyGroup>
   <TailwindConfigFile>path/to/your/tailwind.config.js</TailwindConfigFile>
   <TailwindInputFile>path/to/your/input/file.css</TailwindInputFile>
@@ -80,7 +80,7 @@ You can change the input and output file paths by adding the following propertie
 ```
 
 The defaults for these properties are:
-```
+```xml
 <PropertyGroup>
   <TailwindConfigFile>tailwind/tailwind.config.js</TailwindConfigFile>
   <TailwindInputFile>tailwind/tailwind.input.css</TailwindInputFile>
@@ -88,9 +88,21 @@ The defaults for these properties are:
 </PropertyGroup>
 ```
 
+### Override the build binary
+You can override the binary used in the tailwind command:
+```xml
+<PropertyGroup>
+  <TailwindBinaryFile>tailwindcss-linux-arm64</TailwindBinaryFile>
+</PropertyGroup>
+```
+
+See the 'lib/tools' folder in this project for the binaries that can be used.
+
+By default, the build tries to select the correct binary based on the `OS` and `Platform` properties of MSBuild.
+
 ### Disable default files copy action
 The library copies default files (`tailwind/tailwind.config.js` and `tailwind/tailwind.input.css`) to your project. To disable this, add the following property:
-```
+```xml
 <PropertyGroup>
   <TailwindCopyDefaultFiles>false</TailwindCopyDefaultFiles>
 </PropertyGroup>

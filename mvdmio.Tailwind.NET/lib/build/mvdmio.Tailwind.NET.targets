@@ -17,7 +17,6 @@
 		<Message Text="Building tailwind ($(Configuration))."                 Importance="high" />
 		<Message Text="  OS                     : $(OS)"                      Importance="high" />
 		<Message Text="  Platform               : $(Platform)"                Importance="high" />
-		<Message Text="  Processor Architecture : $(PROCESSOR_ARCHITECTURE)"  Importance="high" />
 		<Message Text="  Config file            : $(TailwindConfigFile)"      Importance="high" />
 		<Message Text="  Input file             : $(TailwindInputFile)"       Importance="high" />
 		<Message Text="  Output file            : $(TailwindOutputFile)"      Importance="high" />

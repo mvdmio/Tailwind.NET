@@ -18,10 +18,10 @@
 		<TailwindBinaryFile>tailwindcss-$(TailwindBinaryOS)-$(TailwindBinaryArch)$(TailwindBinaryExt)</TailwindBinaryFile>
 		
 		<!-- Construct the final binary file path -->
-		<TailwindBinaryPath>$(MSBuildThisFileDirectory)..\tools\$(TailwindBinaryFile)</TailwindBinaryPath>
+		<TailwindBinaryPath>$(MSBuildThisFileDirectory)../tools/$(TailwindBinaryFile)</TailwindBinaryPath>
 		
 		<!-- Files to inlcude in the target project -->
-		<TailwindFilesSourcepath>$(MSBuildThisFileDirectory)..\files</TailwindFilesSourcepath>
+		<TailwindFilesSourcepath>$(MSBuildThisFileDirectory)../files</TailwindFilesSourcepath>
 
 		<!-- Variables -->
 		<TailwindCopyDefaultFiles>true</TailwindCopyDefaultFiles>

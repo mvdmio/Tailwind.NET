@@ -7,20 +7,21 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04 #ubuntu-latest doesnt work at the moment, see: https://github.com/NuGet/setup-nuget/issues/168
 
     steps:
     - uses: actions/checkout@v3
-    
+
     - name: Setup NuGet.exe for use with actions
-      uses: NuGet/setup-nuget@v1.1.1
+      uses: nuget/setup-nuget@v2
       with:
         nuget-api-key: ${{secrets.NUGET_API_KEY}}
+        nuget-version: 'latest'
 
     - name: Setup .NET
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 7.0.x
+        dotnet-version: 9
         
     - name: Restore dependencies
       run: dotnet restore mvdmio.Tailwind.NET

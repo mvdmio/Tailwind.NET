@@ -1,3 +1,5 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import 'tailwindcss';
+
+/* Upgrade guide: https://tailwindcss.com/docs/upgrade-guide */
+/* Theme variables: https://tailwindcss.com/docs/theme */
+@config "tailwind.config.js";

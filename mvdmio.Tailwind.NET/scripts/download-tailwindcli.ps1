@@ -33,4 +33,4 @@ if($null -eq $selectedRelease){
 
 $basePath = Split-Path $MyInvocation.MyCommand.Path -Parent
 gh release download -p "*" $version -D "$basePath/../lib/tools" -R tailwindlabs/tailwindcss --clobber
-New-Item "$basePath/../lib/tools/$version" -Force
+New-Item "$basePath/../lib/$version" -Force

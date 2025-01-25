@@ -23,6 +23,10 @@
    <ItemGroup>
       <None Include="..\License.txt" PackagePath="" Pack="true"/>
       <None Include="..\Readme.md" PackagePath="" Pack="true"/>
+      <None Update="v3.4.17">
+        <PackagePath>tools</PackagePath>
+        <Pack>true</Pack>
+      </None>
    </ItemGroup>
 
    <ItemGroup>

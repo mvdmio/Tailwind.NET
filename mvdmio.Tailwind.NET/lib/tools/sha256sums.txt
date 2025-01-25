@@ -1,7 +1,3 @@
-69b1378b8133192d7d2feb12a116fa12d035594f58db3eff215879e4ad8cf39b  ./tailwindcss-linux-arm64
-704e7d91afba6e1f630889afd0d7db36b4634e628512cc141d504a5beae28860  ./tailwindcss-linux-armv7
-7d24f7fa191d2193b78cd5f5a42a6093e14409521908529f42d80b11fde1f1d4  ./tailwindcss-linux-x64
-a1d0c7985759accca0bf12e51ac1dcbf0f6cf2fffb62e6e0f62d091c477a10a3  ./tailwindcss-macos-arm64
-6cbdad74be776c087ffa5e9a057512c54898f9fe8828d3362212dfe32fc933a3  ./tailwindcss-macos-x64
-76f516476784c00f1562160b5758e3d8f0e6c48957efb26b5b50fbdfd76aa382  ./tailwindcss-windows-arm64.exe
-67f1c5e3f5a03406a7bf5badf5ada09b79f3ae78ec43450c15f7e983068da346  ./tailwindcss-windows-x64.exe
+version https://git-lfs.github.com/spec/v1
+oid sha256:2916b3ebf76727733225a8321907783f00905beec11ad7717ea664f4db8acc6a
+size 652

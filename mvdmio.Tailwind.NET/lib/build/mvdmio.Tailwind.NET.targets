@@ -1,23 +1,20 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<Target Name="CopyTailwindContent" BeforeTargets="BuildTailwind" Condition="'$(TailwindCopyDefaultFiles)'=='true'">
 		<Message Text="Copying Tailwind files if they don't exist yet."         Importance="high" />
-		<Message Text="  Config: $(TailwindFilesSourcepath)/tailwind.config.js" Importance="high" />
 		<Message Text="  Input: $(TailwindFilesSourcepath)/tailwind.input.css"  Importance="high" />
 		<Message Text="  Destination: $(MSBuildProjectDirectory)/Tailwind"      Importance="high" />
 
-		<Copy SourceFiles="$(TailwindFilesSourcepath)/tailwind.config.js" DestinationFolder="$(MSBuildProjectDirectory)/Tailwind" Condition="!Exists('$(MSBuildProjectDirectory)/Tailwind/Tailwind.config.js')" />
 		<Copy SourceFiles="$(TailwindFilesSourcepath)/tailwind.input.css" DestinationFolder="$(MSBuildProjectDirectory)/Tailwind" Condition="!Exists('$(MSBuildProjectDirectory)/Tailwind/tailwind.input.css')" />
 	</Target>
 
 	<Target Name="BuildTailwind" AfterTargets="Build">
 		<PropertyGroup>
-			<TailwindBaseCommand>"$(TailwindBinaryPath)" -c "$(TailwindConfigFile)" -i "$(TailwindInputFile)" -o "$(TailwindOutputFile)"</TailwindBaseCommand>
+			<TailwindBaseCommand>"$(TailwindBinaryPath)" -i "$(TailwindInputFile)" -o "$(TailwindOutputFile)"</TailwindBaseCommand>
 		</PropertyGroup>
 
 		<Message Text="Building tailwind ($(Configuration))."                 Importance="high" />
 		<Message Text="  OS                     : $(OS)"                      Importance="high" />
 		<Message Text="  Platform               : $(Platform)"                Importance="high" />
-		<Message Text="  Config file            : $(TailwindConfigFile)"      Importance="high" />
 		<Message Text="  Input file             : $(TailwindInputFile)"       Importance="high" />
 		<Message Text="  Output file            : $(TailwindOutputFile)"      Importance="high" />
 		<Message Text="  Binary file            : $(TailwindBinaryFile)"      Importance="high" />
@@ -31,12 +28,11 @@
 
 	<Target Name="WatchTailwind">
 		<PropertyGroup>
-			<TailwindBaseCommand>"$(TailwindBinaryPath)" -c "$(TailwindConfigFile)" -i "$(TailwindInputFile)" -o "$(TailwindOutputFile)"</TailwindBaseCommand>
+			<TailwindBaseCommand>"$(TailwindBinaryPath)" -i "$(TailwindInputFile)" -o "$(TailwindOutputFile)"</TailwindBaseCommand>
 			<TailwindWatchCommand>$(TailwindBaseCommand) --watch</TailwindWatchCommand>
 		</PropertyGroup>
 
 		<Message Text="Starting tailwind watch"               Importance="high" />
-		<Message Text="  Config file : $(TailwindConfigFile)" Importance="high" />
 		<Message Text="  Input file  : $(TailwindInputFile)"  Importance="high" />
 		<Message Text="  Output file : $(TailwindOutputFile)" Importance="high" />
 		<Message Text="  Binary path : $(TailwindBinaryPath)" Importance="high" />

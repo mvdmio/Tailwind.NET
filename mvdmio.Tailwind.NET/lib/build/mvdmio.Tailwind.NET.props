@@ -25,7 +25,6 @@
 
 		<!-- Variables -->
 		<TailwindCopyDefaultFiles>true</TailwindCopyDefaultFiles>
-		<TailwindConfigFile>Tailwind/tailwind.config.js</TailwindConfigFile>
 		<TailwindInputFile>Tailwind/tailwind.input.css</TailwindInputFile>
 		<TailwindOutputFile>wwwroot/tailwind.output.css</TailwindOutputFile>
 	</PropertyGroup>

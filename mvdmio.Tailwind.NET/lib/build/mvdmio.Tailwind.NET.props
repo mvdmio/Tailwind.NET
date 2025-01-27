@@ -7,8 +7,7 @@
   
 		<!-- Set the architecture portion of the binary file name -->
 		<TailwindBinaryArch Condition="'$(Platform)' == 'ARM64'">arm64</TailwindBinaryArch>
-		<TailwindBinaryArch Condition="'$(Platform)' == 'ARM'">armv7</TailwindBinaryArch>
-		<TailwindBinaryArch Condition="'$(Platform)' != 'ARM64' and '$(Platform)' != 'ARM'">x64</TailwindBinaryArch>
+		<TailwindBinaryArch Condition="'$(Platform)' != 'ARM64'">x64</TailwindBinaryArch>
   
 		<!-- Set the executable extension for the binary -->
 		<TailwindBinaryExt Condition="'$(OS)' == 'Windows_NT'">.exe</TailwindBinaryExt>
@@ -18,10 +17,10 @@
 		<TailwindBinaryFile>tailwindcss-$(TailwindBinaryOS)-$(TailwindBinaryArch)$(TailwindBinaryExt)</TailwindBinaryFile>
 		
 		<!-- Construct the final binary file path -->
-		<TailwindBinaryPath>$(MSBuildThisFileDirectory)../tools/$(TailwindBinaryFile)</TailwindBinaryPath>
+		<TailwindBinaryPath>$(MSBuildProjectDirectory)tools/$(TailwindBinaryFile)</TailwindBinaryPath>
 		
 		<!-- Files to inlcude in the target project -->
-		<TailwindFilesSourcepath>$(MSBuildThisFileDirectory)../files</TailwindFilesSourcepath>
+		<TailwindFilesSourcepath>$(MSBuildProjectDirectory)files</TailwindFilesSourcepath>
 
 		<!-- Variables -->
 		<TailwindCopyDefaultFiles>true</TailwindCopyDefaultFiles>

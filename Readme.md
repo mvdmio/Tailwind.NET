@@ -3,6 +3,9 @@ This package makes it possible to use [TailwindCSS](https://tailwindcss.com) in 
 
 It uses the [Tailwind Standalone CLI](https://tailwindcss.com/blog/standalone-cli) to make this possible.
 
+## Dependencies
+You must have nodejs installed on your system to use this package. You can download it from [https://nodejs.org](https://nodejs.org).
+
 ## Usage
 After installation, the NuGet package will automatically build the tailwind input file on every build. It will minify the output file when in Release mode.
 

@@ -23,7 +23,7 @@
 		<Message Text="  Command: $(TailwindBaseCommand)"               Importance="high" Condition="'$(Configuration)'=='Debug'" />
 		<Message Text="  Command: $(TailwindBaseCommand) --minify"      Importance="high" Condition="'$(Configuration)'=='Release'" />
 
-		<Exec Condition="'$(Configuration)'=='Debug'"   Command="$(TailwindBaseCommand)" />
-		<Exec Condition="'$(Configuration)'=='Release'" Command="$(TailwindBaseCommand) --minify" />
+		<Exec Condition="'$(Configuration)'=='Debug'"   Command="$(TailwindBaseCommand)"          WorkingDirectory="$(MSBuildProjectDirectory)/Tailwind" />
+		<Exec Condition="'$(Configuration)'=='Release'" Command="$(TailwindBaseCommand) --minify" WorkingDirectory="$(MSBuildProjectDirectory)/Tailwind" />
 	</Target>
 </Project>

@@ -13,7 +13,7 @@
 
 	<Target Name="BuildTailwind" AfterTargets="Build">
 		<PropertyGroup>
-			<TailwindBaseCommand>npx @tailwindcss/cli -i "$(TailwindInputFile)" -o "$(TailwindOutputFile)</TailwindBaseCommand>
+			<TailwindBaseCommand>npx @tailwindcss/cli -i "$(TailwindInputFile)" -o "$(TailwindOutputFile)"</TailwindBaseCommand>
 		</PropertyGroup>
 
 		<Message Text="Building tailwind ($(Configuration))."           Importance="high" />

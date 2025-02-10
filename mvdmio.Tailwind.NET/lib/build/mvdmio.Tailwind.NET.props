@@ -5,7 +5,7 @@
 
 		<!-- Variables -->
 		<TailwindCopyDefaultFiles>true</TailwindCopyDefaultFiles>
-		<TailwindInputFile>Tailwind/tailwind.input.css</TailwindInputFile>
-		<TailwindOutputFile>wwwroot/tailwind.output.css</TailwindOutputFile>
+		<TailwindInputFile>tailwind.input.css</TailwindInputFile>
+		<TailwindOutputFile>$(MSBuildProjectDirectory)/wwwroot/tailwind.output.css</TailwindOutputFile>
 	</PropertyGroup>
 </Project>

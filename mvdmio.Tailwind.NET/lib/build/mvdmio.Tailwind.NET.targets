@@ -16,14 +16,14 @@
 			<TailwindBaseCommand>npx @tailwindcss/cli -i "$(TailwindInputFile)" -o "$(TailwindOutputFile)"</TailwindBaseCommand>
 		</PropertyGroup>
 
-		<Message Text="Building tailwind ($(Configuration))."           Importance="high" />
-		<Message Text="  Input file       : $(TailwindInputFile)"       Importance="high" />
-		<Message Text="  Output file      : $(TailwindOutputFile)"      Importance="high" />
-		<Message Text="  Working Directory: $(MSBuildProjectDirectory)" Importance="high" />
-		<Message Text="  Command: $(TailwindBaseCommand)"               Importance="high" Condition="'$(Configuration)'=='Debug'" />
-		<Message Text="  Command: $(TailwindBaseCommand) --minify"      Importance="high" Condition="'$(Configuration)'=='Release'" />
+		<Message Text="Building tailwind ($(Configuration))."                    Importance="high" />
+		<Message Text="  Input file       : $(TailwindInputFile)"                Importance="high" />
+		<Message Text="  Output file      : $(TailwindOutputFile)"               Importance="high" />
+		<Message Text="  Working Directory: $(MSBuildProjectDirectory)/Tailwind" Importance="high" />
+		<Message Text="  Command: $(TailwindBaseCommand)"                        Importance="high" Condition="'$(Configuration)'=='Debug'" />
+		<Message Text="  Command: $(TailwindBaseCommand) --minify"               Importance="high" Condition="'$(Configuration)'=='Release'" />
 
-		<Exec Condition="'$(Configuration)'=='Debug'"   Command="$(TailwindBaseCommand)" />
-		<Exec Condition="'$(Configuration)'=='Release'" Command="$(TailwindBaseCommand) --minify" />
+		<Exec Condition="'$(Configuration)'=='Debug'"   WorkingDirectory="$(MSBuildProjectDirectory)/Tailwind" Command="$(TailwindBaseCommand)" />
+		<Exec Condition="'$(Configuration)'=='Release'" WorkingDirectory="$(MSBuildProjectDirectory)/Tailwind" Command="$(TailwindBaseCommand) --minify" />
 	</Target>
 </Project>

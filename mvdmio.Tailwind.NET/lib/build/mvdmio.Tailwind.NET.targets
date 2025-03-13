@@ -22,8 +22,8 @@
 		<Message Text="  Command: $(TailwindBaseCommand)"               Importance="high" Condition="'$(Configuration)'=='Debug'" />
 		<Message Text="  Command: $(TailwindBaseCommand) --minify"      Importance="high" Condition="'$(Configuration)'=='Release'" />
 
-		<Exec Command="npm install"                     WorkingDirectory="$(MSBuildProjectDirectory)" Condition="!Exists('$(MSBuildProjectDirectory)/node_modules')" />
-		<Exec Command="npm update"                      WorkingDirectory="$(MSBuildProjectDirectory)" Condition="Exists('$(MSBuildProjectDirectory)/node_modules')" />
+		<Exec Command="npm install --no-fund"           WorkingDirectory="$(MSBuildProjectDirectory)" Condition="!Exists('$(MSBuildProjectDirectory)/node_modules')" />
+		<Exec Command="npm update --no-fund"            WorkingDirectory="$(MSBuildProjectDirectory)" Condition="Exists('$(MSBuildProjectDirectory)/node_modules')" />
 		<Exec Command="$(TailwindBaseCommand)"          WorkingDirectory="$(MSBuildProjectDirectory)" Condition="'$(Configuration)'=='Debug'" />
 		<Exec Command="$(TailwindBaseCommand) --minify" WorkingDirectory="$(MSBuildProjectDirectory)" Condition="'$(Configuration)'=='Release'" />
 	</Target>

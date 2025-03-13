@@ -6,6 +6,6 @@
 		<!-- Variables -->
 		<TailwindCopyDefaultFiles>true</TailwindCopyDefaultFiles>
 		<TailwindInputFile>Tailwind/tailwind.input.css</TailwindInputFile>
-		<TailwindOutputFile>$(MSBuildProjectDirectory)/wwwroot/tailwind.output.css</TailwindOutputFile>
+		<TailwindOutputFile>wwwroot/tailwind.output.css</TailwindOutputFile>
 	</PropertyGroup>
 </Project>

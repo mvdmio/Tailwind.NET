@@ -8,7 +8,6 @@
 
 		<Copy SourceFiles="$(TailwindFilesSourcepath)tailwind.input.css" DestinationFolder="$(MSBuildProjectDirectory)/Tailwind" Condition="!Exists('$(MSBuildProjectDirectory)/Tailwind/tailwind.input.css')" />
 		<Copy SourceFiles="$(TailwindFilesSourcepath)package.json"       DestinationFolder="$(MSBuildProjectDirectory)" Condition="!Exists('$(MSBuildProjectDirectory)/package.json')" />
-		<Exec Command="npm install" WorkingDirectory="$(MSBuildProjectDirectory)" Condition="!Exists('$(MSBuildProjectDirectory)/node_modules')" />
 	</Target>
 
 	<Target Name="BuildTailwind" AfterTargets="Build">
@@ -23,7 +22,9 @@
 		<Message Text="  Command: $(TailwindBaseCommand)"               Importance="high" Condition="'$(Configuration)'=='Debug'" />
 		<Message Text="  Command: $(TailwindBaseCommand) --minify"      Importance="high" Condition="'$(Configuration)'=='Release'" />
 
-		<Exec Condition="'$(Configuration)'=='Debug'"   WorkingDirectory="$(MSBuildProjectDirectory)" Command="$(TailwindBaseCommand)" />
-		<Exec Condition="'$(Configuration)'=='Release'" WorkingDirectory="$(MSBuildProjectDirectory)" Command="$(TailwindBaseCommand) --minify" />
+		<Exec Command="npm install"                     WorkingDirectory="$(MSBuildProjectDirectory)" Condition="!Exists('$(MSBuildProjectDirectory)/node_modules')" />
+		<Exec Command="npm update"                      WorkingDirectory="$(MSBuildProjectDirectory)" Condition="Exists('$(MSBuildProjectDirectory)/node_modules')" />
+		<Exec Command="$(TailwindBaseCommand)"          WorkingDirectory="$(MSBuildProjectDirectory)" Condition="'$(Configuration)'=='Debug'" />
+		<Exec Command="$(TailwindBaseCommand) --minify" WorkingDirectory="$(MSBuildProjectDirectory)" Condition="'$(Configuration)'=='Release'" />
 	</Target>
 </Project>
